@@ -1,0 +1,17 @@
+{
+  "platforms": [
+    "apple",
+    "android",
+    "web"
+  ],
+  "apple": {
+    "modules": [
+      "MicModule"
+    ]
+  },
+  "android": {
+    "modules": [
+      "expo.modules.mic.MicModule"
+    ]
+  }
+}
