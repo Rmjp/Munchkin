@@ -10,7 +10,10 @@
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.anonymous.pipe-detect"
+      "bundleIdentifier": "com.anonymous.pipe-detect",
+      "infoPlist": {
+        "NSMicrophoneUsageDescription": "This app uses the microphone to detect pipes."
+      }
     },
     "android": {
       "adaptiveIcon": {
