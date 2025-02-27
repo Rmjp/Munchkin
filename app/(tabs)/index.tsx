@@ -9,10 +9,11 @@ import { useEffect } from 'react';
 
 export default function HomeScreen() {
   useEffect(() => {
-    MicModule.addListener('onChange', (event) => {
-      console.log(event);
+    MicModule.addListener('onAudioData', (event) => {
+      console.log( event.timestamp + " " + event.mic);
     }
     );
+    console.log(MicModule.PI);
   }, []);
   return (
     <ParallaxScrollView
@@ -30,7 +31,8 @@ export default function HomeScreen() {
           with the device's microphone.
         </ThemedText>
         <Button title="Install Mic module" onPress={() => MicModule.setValueAsync("Test")} />
-        <Button title="Start Recording" onPress={() => console.log(MicModule.getDataSources())} />
+        <Button title="Start Recording" onPress={() => console.log(MicModule.startRecoding())} />
+        <Button title="Stop Recording" onPress={() => console.log(MicModule.stopRecording())} />
       </ThemedView>
     </ParallaxScrollView>
   );

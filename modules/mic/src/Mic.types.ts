@@ -6,10 +6,17 @@ export type OnLoadEventPayload = {
 
 export type MicModuleEvents = {
   onChange: (params: ChangeEventPayload) => void;
+  onAudioData: (params: AudioDataEventPayload) => void;
 };
 
 export type ChangeEventPayload = {
   value: string;
+};
+
+export type AudioDataEventPayload = {
+  mic: string;
+  timestamp: number;
+  audio: string;
 };
 
 export type MicViewProps = {

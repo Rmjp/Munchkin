@@ -81,5 +81,7 @@
     <string>Automatic</string>
     <key>UIViewControllerBasedStatusBarAppearance</key>
     <false/>
+    <key>NSMicrophoneUsageDescription</key>
+    <string>This app uses the microphone to capture audio.</string>
   </dict>
 </plist>
