@@ -1,4 +1,5 @@
 import ExpoModulesCore
+import AVFAudio
 
 public class MicModule: Module {
   // Each module class must implement the definition function. The definition consists of components
@@ -17,10 +18,33 @@ public class MicModule: Module {
 
     // Defines event names that the module can send to JavaScript.
     Events("onChange")
+    Events("onRecording")
 
     // Defines a JavaScript synchronous function that runs the native code on the JavaScript thread.
     Function("hello") {
       return "Hello world! 👋"
+    }
+
+    Function("getDataSources") {
+      let audioSession = AVAudioSession.sharedInstance()
+    
+      // Get available inputs
+      guard let availableInputs = audioSession.availableInputs else {
+          return []
+      }
+      
+      var dataSourceDescriptions: [String] = []
+      
+      // Iterate over each input and collect its data sources
+      for input in availableInputs {
+          if let dataSources = input.dataSources {
+              for dataSource in dataSources {
+                  dataSourceDescriptions.append("\(dataSource)")
+              }
+          }
+      }
+      
+      return dataSourceDescriptions
     }
 
     // Defines a JavaScript function that always returns a Promise and whose native code

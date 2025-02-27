@@ -9,6 +9,8 @@ declare class MicModule extends NativeModule<MicModuleEvents> {
   
   startRecoding(): void;
   stopRecording(): void;
+
+  getDataSources(): string[];
 }
 
 // This call loads the native module object from the JSI.

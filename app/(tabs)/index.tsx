@@ -30,6 +30,7 @@ export default function HomeScreen() {
           with the device's microphone.
         </ThemedText>
         <Button title="Install Mic module" onPress={() => MicModule.setValueAsync("Test")} />
+        <Button title="Start Recording" onPress={() => console.log(MicModule.getDataSources())} />
       </ThemedView>
     </ParallaxScrollView>
   );
